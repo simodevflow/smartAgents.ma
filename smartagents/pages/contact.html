@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Contacter SmartAgents International — Demander un audit ou planifier un entretien.">
+  <title>Contact — SmartAgents International</title>
+  <link rel="icon" type="image/png" href="../images/logo.png">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+<nav class="nav">
+  <a href="../index.html" class="nav-logo"><img src="../images/logo.png" alt="SmartAgents International"></a>
+  <ul class="nav-links">
+    <li><a href="../index.html" data-i18n="nav.home">Accueil</a></li>
+    <li><a href="services.html" data-i18n="nav.services">Services</a></li>
+    <li><a href="a-propos.html" data-i18n="nav.about">À Propos</a></li>
+    <li><a href="contact.html" data-i18n="nav.contact">Contact</a></li>
+  </ul>
+  <div style="display:flex;align-items:center;gap:16px;">
+    <div class="lang-switcher" role="group" aria-label="Language selector">
+      <button class="lang-btn" data-lang="fr">FR</button>
+      <button class="lang-btn" data-lang="en">EN</button>
+    </div>
+    <a href="contact.html" class="nav-cta" data-i18n="nav.cta">Prendre contact</a>
+  </div>
+  <div class="nav-burger"><span></span><span></span><span></span></div>
+</nav>
+
+<div class="mobile-nav">
+  <span class="mobile-close">✕</span>
+  <a href="../index.html" data-i18n="nav.home">Accueil</a>
+  <a href="services.html" data-i18n="nav.services">Services</a>
+  <a href="a-propos.html" data-i18n="nav.about">À Propos</a>
+  <a href="contact.html" data-i18n="nav.contact">Contact</a>
+  <div class="lang-switcher" style="margin:0;"><button class="lang-btn" data-lang="fr">FR</button><button class="lang-btn" data-lang="en">EN</button></div>
+</div>
+
+<header class="page-hero">
+  <div class="section" style="padding:0;">
+    <h4 class="fade-up"><span class="gold-line"></span><span data-i18n="contact_page.eyebrow">Prise de contact</span></h4>
+    <h1 class="fade-up"><span data-i18n="contact_page.title_1">Parlons de votre</span><br><em data-i18n="contact_page.title_2">organisation.</em></h1>
+    <p style="max-width:500px;font-size:1rem;margin-top:24px;" class="fade-up" data-i18n="contact_page.desc">Nous répondons dans les 24 heures ouvrées.</p>
+  </div>
+</header>
+
+<section class="section">
+  <div class="contact-grid">
+
+    <!-- FORM -->
+    <div>
+      <h2 class="fade-up" style="margin-bottom:36px;font-size:2rem;" data-i18n="contact_page.form_title">Votre demande</h2>
+      <form id="contact-form" novalidate action="#" method="POST">
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;">
+          <div class="form-group">
+            <label for="prenom" data-i18n="contact_page.label_prenom">Prénom</label>
+            <input type="text" id="prenom" name="prenom" required autocomplete="given-name" data-i18n-placeholder="contact_page.ph_prenom" placeholder="Votre prénom">
+          </div>
+          <div class="form-group">
+            <label for="nom" data-i18n="contact_page.label_nom">Nom</label>
+            <input type="text" id="nom" name="nom" required autocomplete="family-name" data-i18n-placeholder="contact_page.ph_nom" placeholder="Votre nom">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="email" data-i18n="contact_page.label_email">Adresse email</label>
+          <input type="email" id="email" name="email" required autocomplete="email" data-i18n-placeholder="contact_page.ph_email" placeholder="votre@email.com">
+        </div>
+        <div class="form-group">
+          <label for="telephone" data-i18n="contact_page.label_tel">Téléphone</label>
+          <input type="tel" id="telephone" name="telephone" autocomplete="tel" data-i18n-placeholder="contact_page.ph_tel" placeholder="+212 6XX XXX XXX">
+        </div>
+        <div class="form-group">
+          <label for="entreprise" data-i18n="contact_page.label_company">Entreprise</label>
+          <input type="text" id="entreprise" name="entreprise" autocomplete="organization" data-i18n-placeholder="contact_page.ph_company" placeholder="Nom de votre entreprise">
+        </div>
+        <div class="form-group">
+          <label for="secteur" data-i18n="contact_page.label_sector">Secteur d'activité</label>
+          <select id="secteur" name="secteur">
+            <option value="" disabled selected data-i18n="contact_page.opt_sector_default">Sélectionnez votre secteur</option>
+            <option value="marketing">Marketing Digital</option>
+            <option value="ecommerce">E-commerce</option>
+            <option value="medical">Médical</option>
+            <option value="crm">CRM</option>
+            <option value="productivite">Productivité</option>
+            <option value="finance">Finance</option>
+            <option value="autre">Autre</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="objet" data-i18n="contact_page.label_object">Objet de la demande</label>
+          <select id="objet" name="objet" required>
+            <option value="" disabled selected data-i18n="contact_page.opt_object_default">Choisissez le type de demande</option>
+            <option value="audit" data-i18n="contact_page.obj_audit">Demande d'audit des processus</option>
+            <option value="entretien" data-i18n="contact_page.obj_meeting">Planifier un entretien</option>
+            <option value="devis" data-i18n="contact_page.obj_quote">Demande de devis</option>
+            <option value="information" data-i18n="contact_page.obj_info">Demande d'information</option>
+            <option value="partenariat" data-i18n="contact_page.obj_partner">Proposition de partenariat</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="message" data-i18n="contact_page.label_message">Décrivez votre situation</label>
+          <textarea id="message" name="message" required data-i18n-placeholder="contact_page.ph_message" placeholder="Décrivez brièvement votre organisation…"></textarea>
+        </div>
+        <div class="form-group">
+          <label for="budget" data-i18n="contact_page.label_budget">Enveloppe budgétaire</label>
+          <select id="budget" name="budget">
+            <option value="" disabled selected data-i18n="contact_page.opt_budget_default">Optionnel</option>
+            <option value="500-1500">500 – 1 500 €/MAD</option>
+            <option value="1500-5000">1 500 – 5 000 €/MAD</option>
+            <option value="5000-15000">5 000 – 15 000 €/MAD</option>
+            <option value="15000+">15 000+ €/MAD</option>
+            <option value="a-definir">À définir</option>
+          </select>
+        </div>
+        <div class="form-gdpr">
+          <input type="checkbox" id="gdpr" name="gdpr" required>
+          <p>
+            <span data-i18n="contact_page.gdpr_text">J'accepte que mes données soient traitées</span>
+            <a href="legal.html#privacy" data-i18n="contact_page.gdpr_link">politique de confidentialité</a>
+            <span data-i18n="contact_page.gdpr_text2">. Je comprends que je peux exercer mes droits en contactant</span>
+            <a href="mailto:privacy@smartagents.ma">privacy@smartagents.ma</a>.
+          </p>
+        </div>
+        <button type="submit" class="btn-primary" style="width:100%;"><span data-i18n="contact_page.submit">Envoyer la demande</span></button>
+        <p style="font-size:0.75rem;margin-top:16px;color:var(--white-dim);" data-i18n="contact_page.required_note">* Champs obligatoires. Délai de réponse : 24 heures ouvrées.</p>
+      </form>
+    </div>
+
+    <!-- INFO -->
+    <div>
+      <div class="info-box fade-up">
+        <h4 data-i18n="contact_page.book_title">Planifier directement</h4>
+        <p data-i18n="contact_page.book_text">Préférez-vous choisir un créneau immédiatement ?</p>
+        <p style="margin-top:12px;"><a href="https://calendly.com/smartagents" target="_blank" rel="noopener noreferrer" data-i18n="contact_page.book_link">→ Réserver un créneau via Calendly</a></p>
+        <p style="font-size:0.78rem;color:var(--white-dim);margin-top:8px;" data-i18n="contact_page.book_note">Sessions de 30 minutes disponibles du lundi au vendredi.</p>
+      </div>
+      <div class="info-box fade-up">
+        <h4 data-i18n="contact_page.direct_title">Contact direct</h4>
+        <p><strong style="color:var(--white);">Email :</strong> <a href="mailto:contact@smartagents.ma">contact@smartagents.ma</a></p>
+        <p style="margin-top:8px;"><strong style="color:var(--white);">WhatsApp :</strong> <a href="https://wa.me/212600000000" target="_blank" rel="noopener noreferrer">+212 6XX XXX XXX</a></p>
+        <p style="margin-top:8px;"><strong style="color:var(--white);">LinkedIn :</strong> <a href="https://linkedin.com/company/smartagents-international" target="_blank" rel="noopener noreferrer">SmartAgents International</a></p>
+      </div>
+      <div class="info-box fade-up">
+        <h4 data-i18n="contact_page.address_title">Adresse</h4>
+        <p data-i18n="contact_page.address_text">SmartAgents International, Maroc</p>
+        <p style="margin-top:8px;font-size:0.8rem;color:var(--white-dim);" data-i18n="contact_page.address_note">Opérations à distance disponibles à l'international.</p>
+      </div>
+      <div class="map-container fade-up" role="img" aria-label="Carte Google Maps">
+        <span>◉</span>
+        <p>Google Maps</p>
+        <p style="font-size:0.72rem;opacity:0.5;">Clé API Google Maps à configurer</p>
+      </div>
+      <div class="info-box fade-up" style="margin-top:24px;">
+        <h4 data-i18n="contact_page.expect_title">Ce que vous pouvez attendre</h4>
+        <ul style="list-style:none;margin-top:8px;">
+          <li style="padding:6px 0;font-size:0.85rem;color:var(--white-dim);display:flex;gap:10px;"><span style="color:var(--gold);">01</span><span data-i18n="contact_page.expect_1">Confirmation de réception sous 24h ouvrées</span></li>
+          <li style="padding:6px 0;font-size:0.85rem;color:var(--white-dim);display:flex;gap:10px;"><span style="color:var(--gold);">02</span><span data-i18n="contact_page.expect_2">Entretien de découverte (30 min, sans engagement)</span></li>
+          <li style="padding:6px 0;font-size:0.85rem;color:var(--white-dim);display:flex;gap:10px;"><span style="color:var(--gold);">03</span><span data-i18n="contact_page.expect_3">Synthèse et proposition d'approche sous 5 jours</span></li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand"><img src="../images/logo.png" alt="SmartAgents International"><p data-i18n="footer.tagline">Architectes de flux opérationnels.</p></div>
+    <div class="footer-col"><h4 data-i18n="footer.col_nav">Navigation</h4><ul><li><a href="../index.html" data-i18n="nav.home">Accueil</a></li><li><a href="services.html" data-i18n="nav.services">Services</a></li><li><a href="a-propos.html" data-i18n="nav.about">À Propos</a></li><li><a href="contact.html" data-i18n="nav.contact">Contact</a></li></ul></div>
+    <div class="footer-col"><h4 data-i18n="footer.col_services">Services</h4><ul><li><a href="services.html" data-i18n="sectors.s1_title">Marketing Digital</a></li><li><a href="services.html" data-i18n="sectors.s2_title">E-commerce</a></li><li><a href="services.html" data-i18n="sectors.s6_title">Finance</a></li></ul></div>
+    <div class="footer-col"><h4 data-i18n="footer.col_legal">Légal</h4><ul><li><a href="legal.html" data-i18n="footer.legal_mentions">Mentions légales</a></li><li><a href="legal.html#privacy" data-i18n="footer.legal_privacy">Confidentialité</a></li><li><a href="legal.html#cookies" data-i18n="footer.legal_cookies">Cookies</a></li></ul></div>
+  </div>
+  <div class="footer-bottom">
+    <p data-i18n="footer.copyright">© 2025 SmartAgents International.</p>
+    <div class="footer-legal"><a href="legal.html" data-i18n="footer.legal_mentions">Mentions légales</a><a href="legal.html#privacy" data-i18n="footer.legal_privacy">Confidentialité</a></div>
+  </div>
+</footer>
+
+<button class="back-top">↑</button>
+<div class="cookie-banner" role="dialog">
+  <p><span data-i18n="cookie.text">Ce site utilise des cookies.</span> <a href="legal.html#cookies" data-i18n="cookie.link_text">politique des cookies</a>.</p>
+  <div class="cookie-actions"><button class="btn-decline" data-i18n="cookie.decline">Refuser</button><button class="btn-accept" data-i18n="cookie.accept">Accepter</button></div>
+</div>
+<script src="../js/main.js"></script>
+</body>
+</html>

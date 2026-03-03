@@ -1,0 +1,76 @@
+HOW TO ADD A NEW LANGUAGE
+SmartAgents International — i18n System
+=========================================
+
+STEP 1 — Create the translation file
+--------------------------------------
+Go to /lang/
+Duplicate en.json
+Rename it: ar.json (Arabic), es.json (Spanish), de.json (German), etc.
+
+Open the new file.
+Translate ONLY the VALUES (text on the right of the colon).
+Never touch the KEYS (text on the left).
+
+  CORRECT:  "home": "Accueil"      ← key untouched, value translated
+  WRONG:    "accueil": "Accueil"   ← key changed, will break
+
+
+STEP 2 — Register the new language in main.js
+-----------------------------------------------
+Open /js/main.js
+Find this line near the top:
+
+  const AVAILABLE_LANGS = ['fr', 'en'];
+
+Add your code:
+
+  const AVAILABLE_LANGS = ['fr', 'en', 'ar'];
+
+
+STEP 3 — Add the switcher button in every HTML file
+------------------------------------------------------
+There are 5 HTML files total:
+  - index.html
+  - pages/services.html
+  - pages/a-propos.html
+  - pages/contact.html
+  - pages/legal.html
+
+In each file, find the TWO lang-switcher blocks
+(one in .nav, one in .mobile-nav) and add your button:
+
+  <button class="lang-btn" data-lang="ar">AR</button>
+
+
+STEP 4 — Done
+--------------
+No other files to touch.
+The engine detects the language, loads the JSON, and updates all
+elements with data-i18n attributes automatically.
+User preference is remembered across all pages via localStorage.
+
+
+NOTES
+------
+- First visit: browser language is detected automatically
+- Fallback: French if the language file is missing or unregistered
+- RTL languages (Arabic, Hebrew, Farsi): add this to applyTranslations()
+  in main.js after the lang attribute line:
+    document.documentElement.setAttribute('dir', t.lang === 'ar' ? 'rtl' : 'ltr');
+
+FILE STRUCTURE
+---------------
+smartagents/
+├── lang/
+│   ├── fr.json            ← French (default)
+│   ├── en.json            ← English
+│   └── XX.json            ← Your new language here
+├── js/
+│   └── main.js            ← Add language code to AVAILABLE_LANGS
+├── index.html             ← Add lang-btn (×2: nav + mobile-nav)
+└── pages/
+    ├── services.html      ← Add lang-btn (×2)
+    ├── a-propos.html      ← Add lang-btn (×2)
+    ├── contact.html       ← Add lang-btn (×2)
+    └── legal.html         ← Add lang-btn (×2)

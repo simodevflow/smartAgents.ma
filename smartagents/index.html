@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="SmartAgents International — Architectes de flux opérationnels. Automatisation sur mesure pour dirigeants d'entreprise et PME.">
+  <meta name="robots" content="index, follow">
+  <meta property="og:title" content="SmartAgents International — Automatisation Opérationnelle">
+  <meta property="og:image" content="images/logo.png">
+  <title>SmartAgents International</title>
+  <link rel="icon" type="image/png" href="images/logo.png">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- NAVIGATION -->
+<nav class="nav" role="navigation">
+  <a href="index.html" class="nav-logo">
+    <img src="images/logo.png" alt="SmartAgents International">
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html" data-i18n="nav.home">Accueil</a></li>
+    <li><a href="pages/services.html" data-i18n="nav.services">Services</a></li>
+    <li><a href="pages/a-propos.html" data-i18n="nav.about">À Propos</a></li>
+    <li><a href="pages/contact.html" data-i18n="nav.contact">Contact</a></li>
+  </ul>
+  <div style="display:flex;align-items:center;gap:16px;">
+    <div class="lang-switcher" role="group" aria-label="Language selector">
+      <button class="lang-btn" data-lang="fr">FR</button>
+      <button class="lang-btn" data-lang="en">EN</button>
+      <button class="lang-btn" data-lang="cz">CZ</button>
+    </div>
+    <a href="pages/contact.html" class="nav-cta" data-i18n="nav.cta">Prendre contact</a>
+  </div>
+  <div class="nav-burger" aria-label="Menu" role="button" tabindex="0">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<!-- MOBILE NAV -->
+<div class="mobile-nav" role="dialog">
+  <span class="mobile-close">✕</span>
+  <a href="index.html" data-i18n="nav.home">Accueil</a>
+  <a href="pages/services.html" data-i18n="nav.services">Services</a>
+  <a href="pages/a-propos.html" data-i18n="nav.about">À Propos</a>
+  <a href="pages/contact.html" data-i18n="nav.contact">Contact</a>
+  <div class="lang-switcher" style="margin:0;">
+    <button class="lang-btn" data-lang="fr">FR</button>
+    <button class="lang-btn" data-lang="en">EN</button>
+  </div>
+</div>
+
+<!-- HERO -->
+<section class="hero" aria-labelledby="hero-title">
+  <div class="hero-bg" aria-hidden="true"></div>
+  <div class="hero-grid" aria-hidden="true"></div>
+  <div class="hero-content">
+    <div class="hero-eyebrow fade-up">
+      <h4><span class="gold-line"></span><span data-i18n="hero.eyebrow">Architectes de Flux Opérationnels</span></h4>
+    </div>
+    <h1 id="hero-title" class="fade-up">
+      <span data-i18n="hero.title_1">L'entreprise qui</span><br>
+      <em data-i18n="hero.title_2">fonctionne sans vous</em>
+    </h1>
+    <p class="hero-desc fade-up" data-i18n="hero.desc">Nous concevons des systèmes d'automatisation sur mesure qui éliminent les frictions invisibles dans vos processus.</p>
+    <div class="hero-actions fade-up">
+      <a href="pages/contact.html" class="btn-primary"><span data-i18n="hero.cta_primary">Demander un audit</span></a>
+      <a href="pages/services.html" class="btn-ghost">
+        <span data-i18n="hero.cta_secondary">Nos services</span> <span class="arrow"></span>
+      </a>
+    </div>
+  </div>
+  <div class="hero-metrics">
+    <div class="metric">
+      <div class="metric-num" data-target="9" data-suffix="+">9+</div>
+      <div class="metric-label" data-i18n="hero.metric_1_label">Secteurs couverts</div>
+    </div>
+    <div class="metric">
+      <div class="metric-num" data-target="50" data-suffix="+">50+</div>
+      <div class="metric-label" data-i18n="hero.metric_2_label">Automatisations déployées</div>
+    </div>
+    <div class="metric">
+      <div class="metric-num" data-target="100" data-suffix="%">100%</div>
+      <div class="metric-label" data-i18n="hero.metric_3_label">Conçu sur mesure</div>
+    </div>
+  </div>
+
+
+  </div>
+
+</section>
+
+<!-- TRUST BAND -->
+<div class="trust-band">
+  <div class="trust-items">
+    <div class="trust-item fade-up">
+      <h4 data-i18n="trust.item_1_label">Méthode</h4>
+      <div class="trust-val" data-i18n="trust.item_1_val">Structurant</div>
+    </div>
+    <div class="trust-item fade-up">
+      <h4 data-i18n="trust.item_2_label">Résultat</h4>
+      <div class="trust-val" data-i18n="trust.item_2_val">Mesurable</div>
+    </div>
+    <div class="trust-item fade-up">
+      <h4 data-i18n="trust.item_3_label">Livraison</h4>
+      <div class="trust-val" data-i18n="trust.item_3_val">Documentée</div>
+    </div>
+    <div class="trust-item fade-up">
+      <h4 data-i18n="trust.item_4_label">Approche</h4>
+      <div class="trust-val" data-i18n="trust.item_4_val">Sur mesure</div>
+    </div>
+    <div class="trust-item fade-up">
+      <h4 data-i18n="trust.item_5_label">Engagement</h4>
+      <div class="trust-val" data-i18n="trust.item_5_val">Long terme</div>
+    </div>
+  </div>
+</div>
+
+<!-- WHAT WE DO -->
+<section class="section">
+  <div class="section-header">
+    <h4 class="fade-up"><span data-i18n="what.eyebrow">Ce que nous faisons</span></h4>
+    <h2 class="fade-up">
+      <span data-i18n="what.title_1">Nous ne vendons pas des outils.</span><br>
+      <span data-i18n="what.title_2">Nous construisons des</span> <em data-i18n="what.title_highlight">architectures</em>.
+    </h2>
+  </div>
+  <div class="services-grid fade-up">
+    <div class="service-card">
+      <div class="service-number">01</div>
+      <div class="service-icon">◈</div>
+      <h3 data-i18n="what.s1_title">Audit des processus</h3>
+      <p data-i18n="what.s1_desc">Cartographie précise de vos flux actuels.</p>
+      <div class="service-tags"><span class="tag">Analyse</span><span class="tag">Diagnostic</span><span class="tag">Cartographie</span></div>
+    </div>
+    <div class="service-card">
+      <div class="service-number">02</div>
+      <div class="service-icon">◉</div>
+      <h3 data-i18n="what.s2_title">Conception des flux</h3>
+      <p data-i18n="what.s2_desc">Chaque automatisation est conçue pour votre réalité opérationnelle.</p>
+      <div class="service-tags"><span class="tag">n8n</span><span class="tag">APIs</span><span class="tag">CRM</span></div>
+    </div>
+    <div class="service-card">
+      <div class="service-number">03</div>
+      <div class="service-icon">◇</div>
+      <h3 data-i18n="what.s3_title">Implémentation & Tests</h3>
+      <p data-i18n="what.s3_desc">Déploiement contrôlé, tests exhaustifs, ajustements itératifs.</p>
+      <div class="service-tags"><span class="tag">Déploiement</span><span class="tag">QA</span><span class="tag">Docs</span></div>
+    </div>
+    <div class="service-card">
+      <div class="service-number">04</div>
+      <div class="service-icon">⬡</div>
+      <h3 data-i18n="what.s4_title">Marketing & Communication</h3>
+      <p data-i18n="what.s4_desc">Newsletters personnalisées, synchronisation de leads, planification réseaux sociaux.</p>
+      <div class="service-tags"><span class="tag">Facebook Ads</span><span class="tag">WhatsApp</span><span class="tag">Email</span></div>
+    </div>
+    <div class="service-card">
+      <div class="service-number">05</div>
+      <div class="service-icon">⬢</div>
+      <h3 data-i18n="what.s5_title">E-commerce & Ventes</h3>
+      <p data-i18n="what.s5_desc">Synchronisation commandes, alertes stock, facturation PDF automatisée.</p>
+      <div class="service-tags"><span class="tag">Shopify</span><span class="tag">WooCommerce</span><span class="tag">Stripe</span></div>
+    </div>
+    <div class="service-card">
+      <div class="service-number">06</div>
+      <div class="service-icon">◆</div>
+      <h3 data-i18n="what.s6_title">Finance & Comptabilité</h3>
+      <p data-i18n="what.s6_desc">Facturation automatique, suivi des paiements en retard, exports bancaires.</p>
+      <div class="service-tags"><span class="tag">Invoicing</span><span class="tag">TVA</span><span class="tag">Reporting</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section class="section" style="padding-top:0;">
+  <div class="section-header">
+    <h4 class="fade-up"><span data-i18n="process.eyebrow">Notre méthode</span></h4>
+    <h2 class="fade-up">
+      <span data-i18n="process.title_1">Un processus structuré,</span><br>
+      <span data-i18n="process.title_2">livrable à chaque étape.</span>
+    </h2>
+  </div>
+  <div class="process-steps">
+    <div class="process-step fade-up">
+      <div class="step-num">01</div>
+      <h4 data-i18n="process.step_1_title">Audit</h4>
+      <p data-i18n="process.step_1_desc">Analyse de vos flux existants.</p>
+    </div>
+    <div class="process-step fade-up">
+      <div class="step-num">02</div>
+      <h4 data-i18n="process.step_2_title">Cartographie</h4>
+      <p data-i18n="process.step_2_desc">Visualisation des automatisations cibles.</p>
+    </div>
+    <div class="process-step fade-up">
+      <div class="step-num">03</div>
+      <h4 data-i18n="process.step_3_title">Conception</h4>
+      <p data-i18n="process.step_3_desc">Développement des flux dans n8n.</p>
+    </div>
+    <div class="process-step fade-up">
+      <div class="step-num">04</div>
+      <h4 data-i18n="process.step_4_title">Déploiement</h4>
+      <p data-i18n="process.step_4_desc">Tests rigoureux, mise en production contrôlée.</p>
+    </div>
+    <div class="process-step fade-up">
+      <div class="step-num">05</div>
+      <h4 data-i18n="process.step_5_title">Autonomie</h4>
+      <p data-i18n="process.step_5_desc">Transfert de compétences, support structuré.</p>
+    </div>
+  </div>
+</section>
+
+<!-- SECTORS -->
+<div class="section-full" style="background:var(--dark);border-top:1px solid var(--border);border-bottom:1px solid var(--border);">
+  <div class="section" style="padding-top:80px;padding-bottom:80px;">
+    <div class="section-header">
+      <h4 class="fade-up"><span data-i18n="sectors.eyebrow">Secteurs d'intervention</span></h4>
+      <h2 class="fade-up">
+        <span data-i18n="sectors.title_1">Neuf domaines.</span><br>
+        <span data-i18n="sectors.title_2">Une même rigueur.</span>
+      </h2>
+    </div>
+    <div class="sectors-grid">
+      <div class="sector-card fade-up">
+        <div class="sector-icon">📊</div>
+        <h3 data-i18n="sectors.s1_title">Marketing Digital</h3>
+        <ul class="sector-list">
+          <li>Newsletters personnalisées</li>
+          <li>Sync leads Facebook → Sheets</li>
+          <li>Segmentation comportementale</li>
+          <li>Rapports marketing automatisés</li>
+        </ul>
+      </div>
+      <div class="sector-card fade-up">
+        <div class="sector-icon">🛒</div>
+        <h3 data-i18n="sectors.s2_title">E-commerce & Ventes</h3>
+        <ul class="sector-list">
+          <li>Sync commandes Shopify/WooCommerce</li>
+          <li>Alertes stock et paniers abandonnés</li>
+          <li>Facturation PDF automatique</li>
+          <li>Mises à jour prix via API</li>
+        </ul>
+      </div>
+      <div class="sector-card fade-up">
+        <div class="sector-icon">🏥</div>
+        <h3 data-i18n="sectors.s3_title">Cabinets Médicaux</h3>
+        <ul class="sector-list">
+          <li>Prise de RDV automatisée</li>
+          <li>Rappels WhatsApp/SMS patients</li>
+          <li>Création dossiers patients</li>
+          <li>Statistiques mensuelles cabinet</li>
+        </ul>
+      </div>
+      <div class="sector-card fade-up">
+        <div class="sector-icon">🤝</div>
+        <h3 data-i18n="sectors.s4_title">CRM & Gestion Client</h3>
+        <ul class="sector-list">
+          <li>Création contacts intelligente</li>
+          <li>Intégration HubSpot / Notion</li>
+          <li>Profil client 360°</li>
+          <li>Tagging automatique leads</li>
+        </ul>
+      </div>
+      <div class="sector-card fade-up">
+        <div class="sector-icon">⚙️</div>
+        <h3 data-i18n="sectors.s5_title">Productivité Interne</h3>
+        <ul class="sector-list">
+          <li>Dashboard centralisé ClickUp/Notion</li>
+          <li>Digest email quotidien</li>
+          <li>Archivage automatique Drive</li>
+          <li>Rapports d'activité équipe</li>
+        </ul>
+      </div>
+      <div class="sector-card fade-up">
+        <div class="sector-icon">💰</div>
+        <h3 data-i18n="sectors.s6_title">Finance & Comptabilité</h3>
+        <ul class="sector-list">
+          <li>Facturation automatique clients</li>
+          <li>Alertes paiements en retard</li>
+          <li>Export Stripe → CRM</li>
+          <li>Reporting TVA automatisé</li>
+        </ul>
+      </div>
+    </div>
+    <div style="text-align:center;margin-top:52px;">
+      <a href="pages/services.html" class="btn-ghost" style="display:inline-flex;">
+        <span data-i18n="sectors.see_all">Voir tous les services</span> <span class="arrow"></span>
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- TESTIMONIAL -->
+<section class="section">
+  <div class="testimonial-block fade-up">
+    <blockquote data-i18n="testimonial.quote">« La question n'était pas l'outil. C'était de savoir si l'automatisation pouvait remplacer un recrutement. »</blockquote>
+    <cite data-i18n="testimonial.author">— Dirigeant PME, 12 collaborateurs</cite>
+  </div>
+</section>
+
+<!-- CTA -->
+<div class="cta-section">
+  <h4 class="fade-up"><span class="gold-line"></span><span data-i18n="cta.eyebrow">Prochaine étape</span><span class="gold-line"></span></h4>
+  <h2 class="fade-up">
+    <span data-i18n="cta.title_1">Votre organisation est-elle prête</span><br>
+    <span data-i18n="cta.title_2">pour la prochaine phase ?</span>
+  </h2>
+  <p class="fade-up" data-i18n="cta.desc">Un audit de vos processus actuels est la première étape.</p>
+  <a href="pages/contact.html" class="btn-primary fade-up"><span data-i18n="cta.btn">Demander un audit gratuit</span></a>
+</div>
+
+<!-- FOOTER -->
+<footer role="contentinfo">
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <img src="images/logo.png" alt="SmartAgents International">
+      <p data-i18n="footer.tagline">Architectes de flux opérationnels.</p>
+    </div>
+    <div class="footer-col">
+      <h4 data-i18n="footer.col_nav">Navigation</h4>
+      <ul>
+        <li><a href="index.html" data-i18n="nav.home">Accueil</a></li>
+        <li><a href="pages/services.html" data-i18n="nav.services">Services</a></li>
+        <li><a href="pages/a-propos.html" data-i18n="nav.about">À Propos</a></li>
+        <li><a href="pages/contact.html" data-i18n="nav.contact">Contact</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4 data-i18n="footer.col_services">Services</h4>
+      <ul>
+        <li><a href="pages/services.html" data-i18n="sectors.s1_title">Marketing Digital</a></li>
+        <li><a href="pages/services.html" data-i18n="sectors.s2_title">E-commerce</a></li>
+        <li><a href="pages/services.html" data-i18n="sectors.s4_title">CRM</a></li>
+        <li><a href="pages/services.html" data-i18n="sectors.s6_title">Finance</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4 data-i18n="footer.col_legal">Légal</h4>
+      <ul>
+        <li><a href="pages/legal.html" data-i18n="footer.legal_mentions">Mentions légales</a></li>
+        <li><a href="pages/legal.html#privacy" data-i18n="footer.legal_privacy">Confidentialité</a></li>
+        <li><a href="pages/legal.html#cookies" data-i18n="footer.legal_cookies">Cookies</a></li>
+        <li><a href="pages/legal.html#cgv" data-i18n="footer.legal_cgv">CGV</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p data-i18n="footer.copyright">© 2025 SmartAgents International. Tous droits réservés.</p>
+    <div class="footer-legal">
+      <a href="pages/legal.html" data-i18n="footer.legal_mentions">Mentions légales</a>
+      <a href="pages/legal.html#privacy" data-i18n="footer.legal_privacy">Confidentialité</a>
+    </div>
+  </div>
+</footer>
+
+<button class="back-top" aria-label="Retour en haut">↑</button>
+
+<!-- COOKIE BANNER -->
+<div class="cookie-banner" role="dialog" aria-live="polite">
+  <p>
+    <span data-i18n="cookie.text">Ce site utilise des cookies.</span>
+    <a href="pages/legal.html#cookies" data-i18n="cookie.link_text">politique des cookies</a>.
+  </p>
+  <div class="cookie-actions">
+    <button class="btn-decline" data-i18n="cookie.decline">Refuser</button>
+    <button class="btn-accept" data-i18n="cookie.accept">Accepter</button>
+  </div>
+</div>
+
+<script src="js/main.js"></script>
+</body>
+</html>
