@@ -1,7 +1,7 @@
 <?php
 // send-whatsapp.php
 function sendWhatsAppMessage($formData = []) {
-    $token = "EAANrZAKLWz7oBQwFO8shOIh8R9WSGZBWgVLKSVC09zZAlzNX44Bfd7OsDm22edZC5x5yJXWvBmqoIzLpyyq2bJ8z52AK4MfGDLtbDn6cf8hRJwE4z7tzEimQJlQdxZA5djW7OtRjoSZAlUZCnTgOIX3aWsuOAbahRey7KZBZATdXvBz4ZBcI5CCHbedwsGmH9yuPrnhmvCYR8xkixhIV4AeS23X0dvauYqsK2oo1ZADBA2fkQNXCFddJYDUJMFveULUtR6VcaZB8JEabU5zfcwV1tBbZA"; // secure, server-side
+    $token = "EAANrZAKLWz7oBQx6VEtTReaORqKp2ThmLZCoKojeghLEaJp0xiZAleiEiuDwWsiXpcrsOSZB90OZBKTK3tZBpbsoDPJMv2gzoBgf4ZBJFi9lovoznkQFYAhf0X9GZANgfuPn902l6kcCG0ZCN8AivrTzXXSd7A1bm4rcxZCHssguYZBNV7XN6odST8pl3yCopEC2occaHxvJZATgYKEwP54rEXYZAKsvbq3GSiBcbuH5DB5ItYhmxp61UXLGKnPqbDCYEH6E92bYxgOnnI4Sr4k8zxlh1gg8ZD"; // secure, server-side
     $phoneId = "1065173526670720"; // WhatsApp Business phone ID
     $recipient = "+212725354292"; // e.g., "15551234567"
 
