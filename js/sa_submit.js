@@ -27,8 +27,10 @@ if (form) {
 
     // ── Config ────────────────────────────────────────────────
     console.log('Preparing to submit form data...'); // Debug: log before preparing data
-    const BACKENDAPI_URL = 'https://crm.smartagents.ma/backendapi/formsubmit';
-    const API_TOKEN      = 'smartagents_497a5c93b715cbfa';
+    // const BACKENDAPI_URL = 'https://crm.smartagents.ma/backendapi/formsubmit';
+    // const API_TOKEN      = 'smartagents_4957a5coy93b715cbfa';
+    const BACKENDAPI_URL = '/submit-lead.php';  // same domain — no CORS, no CSP
+    const API_TOKEN      = '';                  // token is now server-side
 
     // ── Loading state ─────────────────────────────────────────
     console.log('Setting loading state...'); // Debug: log loading state
@@ -68,7 +70,7 @@ if (form) {
         method: 'POST',
         headers: {
           'Content-Type':     'application/json',
-          'X-API-TOKEN':      API_TOKEN,
+        //   'X-API-TOKEN':      API_TOKEN,
           'X-Requested-With': 'XMLHttpRequest',
         },
         body: JSON.stringify(data),
