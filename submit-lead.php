@@ -1,60 +1,60 @@
 <?php
+// TEMPORARY DEBUG — remove after fixing
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
 
 header('Content-Type: application/json');
-header('X-Content-Type-Options: nosniff');
 
-// ── Only accept POST ──────────────────────────────────────────────────
+// Test 1: Is PHP running?
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
-    http_response_code(405);
-    echo json_encode(['status' => 'error', 'message' => 'Method not allowed']);
+    echo json_encode(['debug' => 'PHP is working, but no POST received']);
     exit;
 }
 
-// ── Config ────────────────────────────────────────────────────────────
-$token  = 'YOUR_TOKEN_FROM_SETTINGS_PAGE';
+// Test 2: Is curl available?
+if (!function_exists('curl_init')) {
+    echo json_encode(['debug' => 'curl is NOT available on this server']);
+    exit;
+}
+
+// Test 3: Can we reach the CRM?
+$token  = 'YOUR_TOKEN_HERE';
 $target = 'https://crm.smartagents.ma/backendapi/formsubmit';
 
-// ── Read raw JSON body ────────────────────────────────────────────────
 $body = file_get_contents('php://input');
 
-if (empty($body)) {
-    http_response_code(400);
-    echo json_encode(['status' => 'error', 'message' => 'Empty request body']);
-    exit;
-}
+// Log what we received
+file_put_contents(__DIR__ . '/debug.log',
+    date('Y-m-d H:i:s') . "\n" .
+    "Body: " . $body . "\n" .
+    "---\n",
+    FILE_APPEND
+);
 
-// ── Forward to CRM via curl ───────────────────────────────────────────
 $ch = curl_init($target);
 curl_setopt_array($ch, [
     CURLOPT_POST           => true,
     CURLOPT_POSTFIELDS     => $body,
     CURLOPT_RETURNTRANSFER => true,
-    CURLOPT_TIMEOUT        => 15,
+    CURLOPT_TIMEOUT        => 10,
     CURLOPT_FOLLOWLOCATION => true,
-    CURLOPT_MAXREDIRS      => 3,
-    CURLOPT_SSL_VERIFYPEER => true,
+    CURLOPT_SSL_VERIFYPEER => false,   // ← temporarily disabled for debug
     CURLOPT_HTTPHEADER     => [
         'Content-Type: application/json',
         'X-API-TOKEN: ' . $token,
-        'X-Forwarded-From: smartagents.ma',
     ],
 ]);
 
-$response  = curl_exec($ch);
-$httpCode  = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+$response = curl_exec($ch);
+$httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
 $curlError = curl_error($ch);
 curl_close($ch);
 
-// ── Curl failed entirely ──────────────────────────────────────────────
-if ($response === false) {
-    http_response_code(500);
-    echo json_encode([
-        'status'  => 'error',
-        'message' => 'Could not reach CRM server.',
-    ]);
-    exit;
-}
-
-// ── Return CRM response as-is to browser ─────────────────────────────
-http_response_code($httpCode);
-echo $response;
+// Return everything for debugging
+echo json_encode([
+    'debug'      => true,
+    'http_code'  => $httpCode,
+    'curl_error' => $curlError,
+    'response'   => $response,   // raw response from CRM
+    'body_sent'  => $body,
+]);
