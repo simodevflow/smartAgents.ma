@@ -58,12 +58,3 @@ if ($response === false) {
 // ── Return CRM response as-is to browser ─────────────────────────────
 http_response_code($httpCode);
 echo $response;
-```
-
----
-
-## Step 3 — Verify it's reachable
-
-Open this URL directly in your browser:
-```
-https://smartagents.ma/submit-lead.php
