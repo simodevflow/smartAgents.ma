@@ -6,7 +6,7 @@
  *   crm.smartagents.ma/backendapi/settings
  */
 
-alert('HI');
+alert('Cool');
 const BACKENDAPI_URL = 'https://crm.smartagents.ma/backendapi/formsubmit';
 
 document.getElementById('contact-form').addEventListener('submit', async function (e) {
