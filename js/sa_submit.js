@@ -17,6 +17,7 @@
 
   const form = document.querySelector('#contact-form');
 if (form) {
+    alert('Form script loaded'); // Debug: confirm script is running
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
 
