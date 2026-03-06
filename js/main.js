@@ -124,21 +124,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     cookieBanner.remove();
   }
 
-  const form = document.querySelector('#contact-form');
-  if (form) {
-    form.addEventListener('submit', (e) => {
-      e.preventDefault();
-      const btn = form.querySelector('button[type="submit"]');
-      const orig = btn.innerHTML;
-      btn.innerHTML = '<span>Envoi…</span>';
-      btn.disabled = true;
-      setTimeout(() => {
-        btn.innerHTML = '<span>Envoyé ✓</span>';
-        form.reset();
-        setTimeout(() => { btn.innerHTML = orig; btn.disabled = false; }, 4000);
-      }, 1500);
-    });
-  }
+
 
 
   // ── COUNTER ANIMATION ──

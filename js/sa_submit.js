@@ -54,6 +54,7 @@ if (form) {
       _honey:     form.querySelector('[name="_honey"]')?.value            || '',
     };
 
+    console.log('Form data payload:', data); // Debug: log the payload being sent
     // ── Client-side GDPR check ────────────────────────────────
     console.log('Checking GDPR consent...'); // Debug: log before GDPR check
     if (data.gdpr !== '1') {
@@ -100,7 +101,7 @@ if (form) {
       } else if (res.status === 403) {
         throw new Error('Erreur de sécurité. Veuillez recharger la page.');
       } else {
-        throw new Error(json.message || 'Une erreur est survenue. Veuillez réessayer.');
+        throw new Error(json.message || 'Une erreur est survenue. Veuillez réessayer plus tard. ');
       }
 
     } catch (err) {
