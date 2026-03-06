@@ -8,7 +8,6 @@
 
 alert('In');
 const BACKENDAPI_URL = 'https://crm.smartagents.ma/backendapi/formsubmit';
-const API_TOKEN      = 'smartagents_497a5c93b715cbfa';  // ← from Settings page
 
 document.getElementById('contact-form').addEventListener('submit', async function (e) {
     e.preventDefault();
