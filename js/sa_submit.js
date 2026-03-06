@@ -1,114 +1,137 @@
-/**
- * SmartAgents Contact Form — BackendAPI Integration
- * Replace the existing form submit handler in your website with this code.
- *
- * Replace YOUR_API_TOKEN below with the token from:
- *   crm.smartagents.ma/backendapi/settings
- */
+//   const form = document.querySelector('#contact-form');
+//   if (form) {
+//     form.addEventListener('submit', (e) => {
+//       e.preventDefault();
+//       const btn = form.querySelector('button[type="submit"]');
+//       const orig = btn.innerHTML;
+//       btn.innerHTML = '<span>Envoi…</span>';
+//       btn.disabled = true;
+//       setTimeout(() => {
+//         btn.innerHTML = '<span>Envoyé ✓</span>';
+//         form.reset();
+//         setTimeout(() => { btn.innerHTML = orig; btn.disabled = false; }, 4000);
+//       }, 1500);
+//     });
+//   }
 
-alert('Cool');
-const BACKENDAPI_URL = 'https://crm.smartagents.ma/backendapi/formsubmit';
 
-document.getElementById('contact-form').addEventListener('submit', async function (e) {
+  const form = document.querySelector('#contact-form');
+if (form) {
+  form.addEventListener('submit', async (e) => {
     e.preventDefault();
 
-    const form   = e.target;
-    const btn    = form.querySelector('button[type="submit"]');
-    const errBox = document.getElementById('form-error');
-    const okBox  = document.getElementById('form-success');
+    const btn  = form.querySelector('button[type="submit"]');
+    const orig = btn.innerHTML;
 
-    // Client-side validation
-    const required = ['prenom', 'nom', 'email', 'objet', 'message'];
-    for (const field of required) {
-        const el = form.querySelector(`[name="${field}"]`);
-        if (!el || !el.value.trim()) {
-            if (errBox) {
-                errBox.textContent = `Veuillez remplir le champ : ${field}`;
-                errBox.style.display = 'block';
-            }
-            el && el.focus();
-            return;
-        }
-    }
+    // ── Config ────────────────────────────────────────────────
+    const BACKENDAPI_URL = 'https://crm.smartagents.ma/backendapi/formsubmit';
+    const API_TOKEN      = 'PASTE_YOUR_TOKEN_FROM_SETTINGS_HERE';
 
-    // GDPR check
-    const gdpr = form.querySelector('[name="gdpr"]');
-    if (!gdpr || !gdpr.checked) {
-        if (errBox) {
-            errBox.textContent = 'Veuillez accepter la politique de confidentialité.';
-            errBox.style.display = 'block';
-        }
-        return;
-    }
+    // ── Loading state ─────────────────────────────────────────
+    btn.innerHTML = '<span>Envoi…</span>';
+    btn.disabled  = true;
 
-    // Build payload
+    // ── Build payload from form fields ────────────────────────
     const data = {
-        prenom:     form.prenom.value.trim(),
-        nom:        form.nom.value.trim(),
-        email:      form.email.value.trim(),
-        telephone:  form.telephone?.value.trim() || '',
-        entreprise: form.entreprise?.value.trim() || '',
-        secteur:    form.secteur?.value || '',
-        objet:      form.objet.value,
-        message:    form.message.value.trim(),
-        budget:     form.budget?.value || '',
-        gdpr:       '1',
+      prenom:     form.querySelector('[name="prenom"]')?.value.trim()     || '',
+      nom:        form.querySelector('[name="nom"]')?.value.trim()        || '',
+      email:      form.querySelector('[name="email"]')?.value.trim()      || '',
+      telephone:  form.querySelector('[name="telephone"]')?.value.trim()  || '',
+      entreprise: form.querySelector('[name="entreprise"]')?.value.trim() || '',
+      secteur:    form.querySelector('[name="secteur"]')?.value           || '',
+      objet:      form.querySelector('[name="objet"]')?.value             || '',
+      message:    form.querySelector('[name="message"]')?.value.trim()    || '',
+      budget:     form.querySelector('[name="budget"]')?.value            || '',
+      gdpr:       form.querySelector('[name="gdpr"]')?.checked ? '1' : '0',
+      _honey:     form.querySelector('[name="_honey"]')?.value            || '',
     };
 
-    // Show loading
-    const originalText = btn.innerHTML;
-    btn.innerHTML      = 'Envoi en cours…';
-    btn.disabled       = true;
-    if (errBox) errBox.style.display = 'none';
+    // ── Client-side GDPR check ────────────────────────────────
+    if (data.gdpr !== '1') {
+      showError('Veuillez accepter la politique de confidentialité.');
+      btn.innerHTML = orig;
+      btn.disabled  = false;
+      return;
+    }
 
+    // ── Submit to BackendAPI ───────────────────────────────────
     try {
-        const res = await fetch(BACKENDAPI_URL, {
-            method: 'POST',
-            headers: {
-                'Content-Type':  'application/json',
-                'X-API-TOKEN':   API_TOKEN,
-                'X-Requested-With': 'XMLHttpRequest',
-            },
-            body: JSON.stringify(data),
-        });
+      const res  = await fetch(BACKENDAPI_URL, {
+        method: 'POST',
+        headers: {
+          'Content-Type':     'application/json',
+          'X-API-TOKEN':      API_TOKEN,
+          'X-Requested-With': 'XMLHttpRequest',
+        },
+        body: JSON.stringify(data),
+      });
 
-        const json = await res.json();
+      const json = await res.json();
 
-        if (res.ok && json.status === 'success') {
-            // Success!
-            form.reset();
-            if (okBox) {
-                okBox.style.display = 'block';
-                okBox.textContent   = '✓ Votre demande a bien été reçue. Nous vous répondons dans 24h.';
-            }
-        } else if (res.status === 429) {
-            throw new Error('Trop de demandes. Veuillez réessayer dans une heure.');
-        } else if (res.status === 422) {
-            const firstError = json.errors
-                ? Object.values(json.errors)[0][0]
-                : 'Veuillez vérifier vos informations.';
-            throw new Error(firstError);
-        } else {
-            throw new Error(json.message || 'Une erreur est survenue.');
-        }
+      if (res.ok && json.status === 'success') {
+        // ── Success ──────────────────────────────────────────
+        btn.innerHTML = '<span>Envoyé ✓</span>';
+        form.reset();
+        showSuccess('Votre demande a bien été reçue. Nous vous répondons dans 24h ouvrées.');
+        setTimeout(() => {
+          btn.innerHTML = orig;
+          btn.disabled  = false;
+          hideMessages();
+        }, 4000);
+
+      } else if (res.status === 429) {
+        throw new Error('Trop de demandes. Veuillez réessayer dans une heure.');
+      } else if (res.status === 422) {
+        const firstError = json.errors
+          ? Object.values(json.errors)[0][0]
+          : 'Veuillez vérifier vos informations.';
+        throw new Error(firstError);
+      } else if (res.status === 403) {
+        throw new Error('Erreur de sécurité. Veuillez recharger la page.');
+      } else {
+        throw new Error(json.message || 'Une erreur est survenue. Veuillez réessayer.');
+      }
 
     } catch (err) {
-        if (errBox) {
-            errBox.textContent   = err.message;
-            errBox.style.display = 'block';
-        }
-    } finally {
-        btn.innerHTML = originalText;
-        btn.disabled  = false;
+      showError(err.message);
+      btn.innerHTML = orig;
+      btn.disabled  = false;
     }
-});
+  });
+}
 
-/**
- * Add these elements near your form button:
- *
- * <div id="form-error"   style="display:none;color:#e63946;margin-top:12px;font-size:0.875rem;"></div>
- * <div id="form-success" style="display:none;color:#2dc653;margin-top:12px;font-size:0.875rem;"></div>
- *
- * Also add a honeypot hidden field inside your <form>:
- * <input type="text" name="_honey" style="display:none;" tabindex="-1" autocomplete="off">
- */
+// ── Helper: show/hide inline messages ─────────────────────────────────
+function showError(msg) {
+  let el = document.getElementById('form-error');
+  if (!el) {
+    el = document.createElement('p');
+    el.id = 'form-error';
+    el.style.cssText = 'color:#e63946;font-size:0.8rem;margin-top:12px;';
+    document.querySelector('#contact-form button[type="submit"]').insertAdjacentElement('afterend', el);
+  }
+  el.textContent    = '⚠ ' + msg;
+  el.style.display  = 'block';
+  const ok = document.getElementById('form-success');
+  if (ok) ok.style.display = 'none';
+}
+
+function showSuccess(msg) {
+  let el = document.getElementById('form-success');
+  if (!el) {
+    el = document.createElement('p');
+    el.id = 'form-success';
+    el.style.cssText = 'color:#2dc653;font-size:0.8rem;margin-top:12px;';
+    document.querySelector('#contact-form button[type="submit"]').insertAdjacentElement('afterend', el);
+  }
+  el.textContent    = '✓ ' + msg;
+  el.style.display  = 'block';
+  const err = document.getElementById('form-error');
+  if (err) err.style.display = 'none';
+}
+
+function hideMessages() {
+  ['form-error', 'form-success'].forEach(id => {
+    const el = document.getElementById(id);
+    if (el) el.style.display = 'none';
+  });
+}
