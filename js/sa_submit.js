@@ -17,22 +17,27 @@
 
   const form = document.querySelector('#contact-form');
 if (form) {
-    alert('Form script loaded'); // Debug: confirm script is running
+    console.log('Form script loaded'); // Debug: confirm script is running
   form.addEventListener('submit', async (e) => {
+    console.log('Form submitted'); // Debug: confirm submit event is triggered
     e.preventDefault();
 
     const btn  = form.querySelector('button[type="submit"]');
     const orig = btn.innerHTML;
 
     // ── Config ────────────────────────────────────────────────
+    console.log('Preparing to submit form data...'); // Debug: log before preparing data
     const BACKENDAPI_URL = 'https://crm.smartagents.ma/backendapi/formsubmit';
-    const API_TOKEN      = 'PASTE_YOUR_TOKEN_FROM_SETTINGS_HERE';
+    const API_TOKEN      = 'smartagents_497a5c93b715cbfa';
 
     // ── Loading state ─────────────────────────────────────────
+    console.log('Setting loading state...'); // Debug: log loading state
     btn.innerHTML = '<span>Envoi…</span>';
+    console.log('Submitting form data to backend API...'); // Debug: log submission start       
     btn.disabled  = true;
 
     // ── Build payload from form fields ────────────────────────
+    console.log('Building payload from form fields...'); // Debug: log before building payload
     const data = {
       prenom:     form.querySelector('[name="prenom"]')?.value.trim()     || '',
       nom:        form.querySelector('[name="nom"]')?.value.trim()        || '',
@@ -48,6 +53,7 @@ if (form) {
     };
 
     // ── Client-side GDPR check ────────────────────────────────
+    console.log('Checking GDPR consent...'); // Debug: log before GDPR check
     if (data.gdpr !== '1') {
       showError('Veuillez accepter la politique de confidentialité.');
       btn.innerHTML = orig;
@@ -56,6 +62,7 @@ if (form) {
     }
 
     // ── Submit to BackendAPI ───────────────────────────────────
+    console.log('Submitting data to backend API...'); // Debug: log before API call
     try {
       const res  = await fetch(BACKENDAPI_URL, {
         method: 'POST',
@@ -71,6 +78,7 @@ if (form) {
 
       if (res.ok && json.status === 'success') {
         // ── Success ──────────────────────────────────────────
+        console.log('Form submitted successfully!'); // Debug: log success
         btn.innerHTML = '<span>Envoyé ✓</span>';
         form.reset();
         showSuccess('Votre demande a bien été reçue. Nous vous répondons dans 24h ouvrées.');
@@ -94,6 +102,7 @@ if (form) {
       }
 
     } catch (err) {
+        console.log('Error submitting form:', err); // Debug: log error details
       showError(err.message);
       btn.innerHTML = orig;
       btn.disabled  = false;
