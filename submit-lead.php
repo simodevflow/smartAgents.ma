@@ -8,10 +8,10 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     exit;
 }
 
-$token  = 'YOUR_TOKEN_HERE';
+$token  = 'smartagents_497a5c93b715cbfa';
 
 // ── Use localhost directly — bypasses loopback block ──────────────────
-$target = 'http://127.0.0.1/backendapi/formsubmit';
+$target = 'https://crm.smartagents.ma/backendapi/formsubmit';
 
 $body = file_get_contents('php://input');
 
