@@ -1,4 +1,4 @@
-# SmartAgents International - Apache Configuration
+# SmartAgents International — Apache Configuration
 # cPanel Ready
 
 # ── CHARACTER ENCODING ──
@@ -26,7 +26,9 @@ RewriteRule ^ %1 [R=301,L]
   Header always set Referrer-Policy "strict-origin-when-cross-origin"
   Header always set Permissions-Policy "geolocation=(), microphone=(), camera=()"
   Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains" env=HTTPS
-  Header always set Content-Security-Policy "default-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; script-src 'self'; frame-src https://calendly.com https://www.google.com;"
+  Header always set Content-Security-Policy "default-src 'self'; connect-src 'self' https://crm.smartagents.ma; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; script-src 'self'; frame-src https://calendly.com https://www.google.com;"
+  
+
 </IfModule>
 
 # ── CACHE CONTROL ──
