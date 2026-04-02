@@ -1,5 +1,5 @@
 // ============================================
-// SMARTAGENTS INTERNATIONAL — i18n ENGINE
+// SMARTAGENTS INTERNATIONAL - i18n ENGINE
 // ============================================
 // To add a new language:
 // 1. Create /lang/XX.json (copy en.json, translate values)

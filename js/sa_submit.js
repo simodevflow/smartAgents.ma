@@ -29,7 +29,7 @@ if (form) {
     console.log('Preparing to submit form data...'); // Debug: log before preparing data
     // const BACKENDAPI_URL = 'https://crm.smartagents.ma/backendapi/formsubmit';
     // const API_TOKEN      = 'YOUR_TOKEN_HERE'; // secure, server-side
-    const BACKENDAPI_URL = '/submit-lead.php';  // same domain — no CORS, no CSP
+    const BACKENDAPI_URL = '/submit-lead.php';  // same domain - no CORS, no CSP
     const API_TOKEN      = '';                  // token is now server-side
 
     // ── Loading state ─────────────────────────────────────────

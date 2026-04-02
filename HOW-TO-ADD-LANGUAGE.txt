@@ -1,8 +1,8 @@
 HOW TO ADD A NEW LANGUAGE
-SmartAgents International — i18n System
+SmartAgents International - i18n System
 =========================================
 
-STEP 1 — Create the translation file
+STEP 1 - Create the translation file
 --------------------------------------
 Go to /lang/
 Duplicate en.json
@@ -16,7 +16,7 @@ Never touch the KEYS (text on the left).
   WRONG:    "accueil": "Accueil"   ← key changed, will break
 
 
-STEP 2 — Register the new language in main.js
+STEP 2 - Register the new language in main.js
 -----------------------------------------------
 Open /js/main.js
 Find this line near the top:
@@ -28,7 +28,7 @@ Add your code:
   const AVAILABLE_LANGS = ['fr', 'en', 'ar'];
 
 
-STEP 3 — Add the switcher button in every HTML file
+STEP 3 - Add the switcher button in every HTML file
 ------------------------------------------------------
 There are 5 HTML files total:
   - index.html
@@ -43,7 +43,7 @@ In each file, find the TWO lang-switcher blocks
   <button class="lang-btn" data-lang="ar">AR</button>
 
 
-STEP 4 — Done
+STEP 4 - Done
 --------------
 No other files to touch.
 The engine detects the language, loads the JSON, and updates all
