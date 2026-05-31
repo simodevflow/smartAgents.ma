@@ -411,10 +411,19 @@
 
     video.playbackRate = 0.75; // 75% speed
 
+    let fading = false;
     video.addEventListener('timeupdate', () => {
-        if (video.duration && video.currentTime >= video.duration - 0.5) {
-            video.pause(); // pause 2 seconds before the end
-            video.style.transition = 'opacity 5s linear', video.style.opacity = '0.25';
+        if (fading) return;
+
+        const remaining = video.duration - video.currentTime;
+
+        if (video.duration > 0 && remaining <= 0.5) {
+            fading = true;
+
+            video.pause();
+
+            video.style.transition = 'opacity 5s linear';
+            video.style.opacity = '0.25';
         }
     });
 
