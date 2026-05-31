@@ -68,9 +68,11 @@
   <!-- HERO -->
   <section class="hero" aria-labelledby="hero-title">
     <div class="hero-bg" aria-hidden="true">
-      <video autoplay=""  
+      <video 
+        id="logoVideo"
+        autoplay=""  
         muted="" 
-        loop="" 
+        loop="1" 
         playsinline=""  
         preload="metadata"> 
         <source src="videos/logo.mp4" type="video/mp4"> 
@@ -403,6 +405,22 @@
   </div>
 
   <script src="js/main.js"></script>
+
+  <script>
+    const video = document.getElementById('logoVideo');
+
+    video.playbackRate = 0.75; // 75% speed
+
+    video.addEventListener('timeupdate', () => {
+        if (video.duration && video.currentTime >= video.duration - 0.5) {
+            video.pause(); // pause 2 seconds before the end
+            video.style.transition = 'opacity 5s linear', video.style.opacity = '0.25';
+        }
+    });
+
+    
+  </script>
+
 </body>
 
 </html>
