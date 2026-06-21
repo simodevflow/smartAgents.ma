@@ -166,7 +166,7 @@ $screenshot = getScreenshot(
 
     <div class="content">
 
-        <h2><?= htmlspecialchars($info['title']) ?></h2>
+        <h4><?= htmlspecialchars($info['title']) ?></h4>
 
         <p><?= htmlspecialchars($info['description']) ?></p>
 
