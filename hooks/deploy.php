@@ -1,7 +1,7 @@
 <?php
     echo "<pre>";
         // Execute the deploy script and capture its output
-        echo "Deploying latest changes... <br>";
+        echo "WbHook : Deploying latest changes... <br>";
         // we need chmod +x public/deploy.sh
         exec('chmod +x /home/huce0783/smartagents.ma/hooks/deploy.sh', $output, $return_var);
 
