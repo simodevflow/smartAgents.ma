@@ -128,8 +128,7 @@ body{
 </head>
 <body>
 
-<h1>Portfolio Gallery ::
-    <!-- <?= count($repositories) ?> Projects</h1> -->
+<h1>Portfolio Gallery : <?= count($repositories) ?> Projects</h1>
 
 <div class="gallery">
 
