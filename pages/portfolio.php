@@ -4,7 +4,6 @@ $repositories = [
     ['owner' => '1', 'repo' => 'http://davidmaj.huce0783.odns.fr'],
     ['owner' => 'smartagentsma-int', 'repo' => 'Institut_Jasmin2'],
     // ['owner' => 'smartagentsma-int', 'repo' => 'smartagents.int'],
-    ['owner' => 'smartagentsma-int', 'repo' => 'Institut_Jasmin'],
     ['owner' => 'smartagentsma-int', 'repo' => 'KriAuto.ma'],
     ['owner' => 'smartagentsma-int', 'repo' => 'jetsahara.ma'],
     ['owner' => 'smartagentsma-int', 'repo' => 'mimi_world_website'],
@@ -16,6 +15,7 @@ $repositories = [
     ['owner' => 'simodevflow', 'repo' => 'smartAgents.ma'],
     ['owner' => 'simodevflow', 'repo' => 'airbnb-activation'],
     ['owner' => '1', 'repo' => 'http://davidmaj.huce0783.odns.fr'],
+    ['owner' => 'smartagentsma-int', 'repo' => 'Institut_Jasmin'],
 
 ];
 
