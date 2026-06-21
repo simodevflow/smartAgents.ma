@@ -10,6 +10,7 @@ $repositories = [
     ['owner' => 'smartagentsma-int', 'repo' => 'penzion.avalanche'],
     ['owner' => 'smartagentsma-int', 'repo' => 'domaci-pece'],
     ['owner' => 'smartagentsma-int', 'repo' => 'JH-OBKLADY'],
+    ['owner' => 'smartagentsma-int', 'repo' => 'Massively'],
     
 
     ['owner' => 'simodevflow', 'repo' => 'smartAgents.ma'],
